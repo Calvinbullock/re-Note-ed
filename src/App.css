@@ -1,0 +1,107 @@
+
+:root {
+    --error: darkred;
+    --dark-error: red;
+    --valid: green;
+
+    /* LIGHT THEME */
+    --background-light: white;
+    --text-light: #00000d;
+    --nav-input-light: #f0f0f0;
+    --note-button-color-light: #f0f0f0;
+    --hover-button-bg: #d9d9d9;
+
+    /* DARK THEME */
+    --background-dark: #0d1b2a;
+    --text-dark: #f8f9fa;
+    --placeholder-dark: #adb5bd;
+
+    --nav-input-dark: #aec3b0;
+    --nav-text-input-dark:  #0d1b2a;
+    --nav-placeholder-dark: #0d1b2a;
+
+    --note-button-color-dark: #140033;
+    --hover-button-bg-dark: #aec3b0;
+    --hover-button-text-dark: #0d1b2a;
+
+    /*DARK LINKS*/
+    --link-dark: #386641;
+    --link-clicked-dark: #6a994e;
+    --linka-hover-dark: #7c957f;
+
+    /* OTHER */
+    --corner-radius: 20px;
+}
+
+.dark-theme input::placeholder {
+    color: var(--placeholder-dark);
+}
+
+.dark-theme textarea::placeholder {
+    color: var(--placeholder-dark);
+}
+
+.dark-theme link {
+    color: var(--link-dark);
+}
+
+.dark-theme a:visited {
+    color: var(--link-clicked-dark);
+}
+
+.home {
+    margin: auto;
+}
+
+main {
+    max-width: 1500px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/* ==============================================================================
+Default react page styling
+-- REMOVE?? --
+============================================================================== */
+/*
+.App {
+text-align: center;
+}
+
+.App-logo {
+height: 40vmin;
+pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+.App-logo {
+animation: App-logo-spin infinite 20s linear;
+}
+}
+
+.App-header {
+background-color: #282c34;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+color: white;
+}
+
+.App-link {
+color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+*/

@@ -1,0 +1,69 @@
+
+@import url('../../App.css');
+
+.test {
+    background-color: var(--background-light);
+    border: var(--text-light) solid 1px;
+
+    border: var(--text-dark) solid 1px;
+    background: var(--background-dark);
+    color: var(--text-dark);
+}
+/* ==============================================================================
+Nav Component
+============================================================================== */
+.nav {
+    padding: 1%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav img,
+.nav input,
+.nav a {
+    margin: 0 5%;
+    margin-top: 0.5%;
+}
+
+#nav-search {
+    border: none;
+    border-radius: var(--corner-radius);
+
+    background-color: var(--nav-input-light);
+    padding: 8px;
+    width: 50%;
+}
+
+#dark-mode-switch {
+    border: none;
+    border-radius: var(--corner-radius);
+
+    background-color: var(--nav-input-light);
+    margin-top: 0.5%;
+    margin-left: 1rem;
+    padding: .5rem;
+    width: 10%;
+}
+
+.dark-theme .nav #nav-search,
+.dark-theme .nav #signIn-button,
+.dark-theme .nav #dark-mode-switch {
+    background: var(--nav-input-dark);
+    color: var(--nav-text-input-dark);
+}
+
+.dark-theme .nav input::placeholder {
+    color: var(--nav-placeholder-dark);
+}
+
+#signIn-button {
+    border: none;
+    border-radius: var(--corner-radius);
+
+    background-color: var(--nav-input-light);
+    margin-top: 0.5%;
+    padding: 8px;
+    width: 8%;
+}
