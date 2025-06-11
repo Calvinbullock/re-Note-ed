@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 // firebase
-import { db } from "./../config/firebase";
+import { db } from "./../config/firebase.ts";
 import { collection, onSnapshot} from "firebase/firestore";
 
 // components

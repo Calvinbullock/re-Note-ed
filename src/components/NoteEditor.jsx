@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { collection, addDoc, doc, updateDoc} from "firebase/firestore";
 
 // config
-import { db, auth } from "./../config/firebase";
+import { db, auth } from "./../config/firebase.ts";
 
 // components
 import { useAppContext } from "./AppContext";

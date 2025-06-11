@@ -1,6 +1,6 @@
 
 // config
-import { db } from "../config/firebase";
+import { db } from "../config/firebase.ts";
 
 // node
 import { deleteDoc, doc } from "firebase/firestore";
