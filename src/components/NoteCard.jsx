@@ -6,7 +6,7 @@ import { db } from "../config/firebase.ts";
 import { deleteDoc, doc } from "firebase/firestore";
 
 // components
-import { setNoteLocalStorage } from "../utils/utils";
+import { setNoteLocalStorage } from "../utils/utils.ts";
 import { useAppContext } from './AppContext';
 
 import "./NoteCard.css"

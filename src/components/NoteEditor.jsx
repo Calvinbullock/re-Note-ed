@@ -14,7 +14,7 @@ import {
     validateNoteData,
     formateData,
     formateEditData
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
 import "./NoteEditor.css"
 
