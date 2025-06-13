@@ -1,11 +1,10 @@
-import { Timestamp } from "firebase/firestore";
-
 export interface Note {
-    dateAdded: string,
-    dateAddedEpoch: Timestamp | null,
-    dueDate: string,
-    modList: Array<string>,
-    text: string,
     title: string,
-    userId: string
+    dateAddedEpoch: Date | null,
+    dateAdded: string,
+    dueDate: string,
+    text: string,
+    modList: Array<string>,
+    userId: string,
+    id: string
 }

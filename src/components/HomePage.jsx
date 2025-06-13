@@ -8,8 +8,8 @@ import { collection, onSnapshot} from "firebase/firestore";
 
 // components
 import Nav from "./nav/Nav";
-import NoteCard from "./NoteCard";
-import NoteEditor from "./NoteEditor";
+import NoteCard from "./NoteCard.tsx";
+import NoteEditor from "./NoteEditor.tsx";
 import { useAppContext } from './AppContext';
 
 import "./HomePage.css"

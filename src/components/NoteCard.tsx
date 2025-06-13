@@ -4,17 +4,19 @@ import { db } from "../config/firebase.ts";
 
 // node
 import { deleteDoc, doc } from "firebase/firestore";
+import React from "react";
 
 // components
 import { setNoteLocalStorage } from "../utils/utils.ts";
 import { useAppContext } from './AppContext';
+import { Note } from "../utils/typedefs.ts";
 
 import "./NoteCard.css"
 
 /*  ===============================================
  *  COMPONENT DEFINITION
  * ============================================= */
-export default function NoteCard(props) {
+export default function NoteCard(props: any) {
     const { theme, setEditNoteWasClicked} = useAppContext();
 
     /*  ==============================================
@@ -29,7 +31,7 @@ export default function NoteCard(props) {
         }
     };
 
-    /*  ==============================================
+    /* ==============================================
     *  Trigger Note Edit
     * ============================================= */
     const editNote = () => {
@@ -39,7 +41,7 @@ export default function NoteCard(props) {
     }
 
     return (
-        <div className={`noteCard ${theme} ${props.modList?.map((mod) => `${mod}`)} `} id={props.id}>
+        <div className={`noteCard ${theme} ${props.modList?.map((mod: Note) => `${mod}`)} `} id={props.id}>
             <h3>{props.title}</h3>
             <p>Note From: {props.dateAdded}</p>
 
@@ -52,14 +54,14 @@ export default function NoteCard(props) {
                     className="delete-note-button"
                     aria-label="Delete Note"
                     onClick={deleteNote}
-                    type="deleteNote"
+                    type="button"
                 >DELETE</button>
 
                 <button
                     className="edit-note-button"
                     aria-label="Edit Note"
                     onClick={editNote}
-                    type="editNote"
+                    type="button"
                 >EDIT</button>
             </div>
         </div>

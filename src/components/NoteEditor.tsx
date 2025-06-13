@@ -17,6 +17,7 @@ import {
 } from "../utils/utils.ts";
 
 import "./NoteEditor.css"
+import { Note } from "../utils/typedefs.ts";
 
 /*  ===============================================
  *  COMPONENT DEFINITION
@@ -33,16 +34,16 @@ export default function NoteEditor() {
     const { wasEditNoteClicked, setEditNoteWasClicked} = useAppContext();
 
     // value changes handlers
-    const handleIdEntry = (event) => {
+    const handleIdEntry = (event: any) => {
         setId(event.target.value);
     }
-    const handleTitleEntry = (event) => {
+    const handleTitleEntry = (event: any) => {
         setTitleEntry(event.target.value);
     }
-    const handleDueDateChange = (event) => {
+    const handleDueDateChange = (event: any) => {
         setDueDateEntry(event.target.value);
     }
-    const handleTextEntry = (event) => {
+    const handleTextEntry = (event: any) => {
         setTextEntry(event.target.value);
     }
 
@@ -72,14 +73,19 @@ export default function NoteEditor() {
      *  Auto Adjust the text area to fit the content
      * ============================================= */
     useEffect(() => {
-        const textarea = document.querySelector('.noteEditor textarea');
-        const container = textarea.parentNode;
+        const textarea = document.querySelector('.noteEditor textarea') as HTMLTextAreaElement | null;
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-            container.style.height = 'auto';
-        });
+        if (textarea) {
+            const container = textarea.parentNode as HTMLElement | null;
+
+            if (container) {
+                textarea.addEventListener('input', () => {
+                    textarea.style.height = 'auto';
+                    textarea.style.height = textarea.scrollHeight + 'px';
+                    container.style.height = 'auto';
+                });
+            }
+        }
     }, []);
 
     /*  ==============================================================================================
@@ -110,7 +116,7 @@ export default function NoteEditor() {
     const submitNoteEdit = async () => {
         const docRef = doc(db, "Notes", noteId);
 
-        let data = {
+        let data: Partial<Note>= {
             title: titleValue,
             dueDate: dueDateValue,
             text: textValue,
@@ -142,7 +148,7 @@ export default function NoteEditor() {
     const submitNote = async () => {
         const addDate = new Date(Date.now());
 
-        let data = {
+        let data: Partial<Note> = {
             title: titleValue,
             dateAddedEpoch: addDate,
             dateAdded: addDate.toLocaleDateString('en-GB'),

@@ -1,61 +1,21 @@
 # Project Readme
+A refactoring / continuation of my [original note-ed](https://github.com/Calvinbullock/Note-ed) project into typescript.
 
 ## site links
 [Live Site](https://noted-eeafd.web.app)
 
 ## dev testing
 Run testing  / dev server
-- `npm start`
+- `npm run start`
 
 ## firebase deployment / setup
 
-##### Deploy a production page
-- should deploy a build every time a change is pushed/megerd to main git branch -- DISABLED
-
-##### if auto prod build fails
+##### build / deploy 
 - run `./deploy.sh` from main branch
 
 #### or
 - `npm run build`
 - `firebase deploy`
-
-[Live Site](https://noted-eeafd.web.app)
-
-## Feature Milestones
-- Must Have's
-    - 1 - ~~add remove notes~~
-    - 2 - ~~sign in capabilities~~
-    - 3 - ~~database back and forth~~
-    - 5 - ~~nice looking and responsive UI (mobile, desktop, etc)~~
-    - 6 - ~~user driven UI (sorting, search)~~
-
-- Nice Have's
-    - 1 - ~~edit / update existing notes~~
-    - 2 - ~~device / tab synchronization (new notes show with out reload)~~
-    - 3 - ~~input sanitation~~
-    - 4 - Due date indicator
-
-## TODO
-```
-ACTIVE TICKET
-- due date passed icon
-
-- notes additions
-    - add clear search button
-    - confirm delete
-    - click and drag??
-
-- Auth
-    - make login div wider
-    - if not logged in send user right to login
-    - check the user is supposed to have accuses to the note
-
-- note styling
-    - see about getting note content to stay in it's original format (not all Squished)
-    - make sure really really long words wrap properly
-    - keep editor in place as user scrolls
-
-```
 
 ## Other ideas to add
 - Pin notes?

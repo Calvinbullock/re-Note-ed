@@ -15,10 +15,10 @@ export default function SignIn() {
 
     const {setIsLogedIn} = useAppContext();
 
-    const handleEmailEntry = (event) => {
+    const handleEmailEntry = (event: any) => {
         setEmailValue(event.target.value);
     }
-    const handlePasswordEntry = (event) => {
+    const handlePasswordEntry = (event: any) => {
         setPassword(event.target.value);
     }
 

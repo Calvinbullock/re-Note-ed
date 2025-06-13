@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Components
 import './App.css';
-import HomePage from "./components/HomePage";
-import SignInPage from "./components/signIn-SignUp/SignInPage";
-import SignUpPage from "./components/signIn-SignUp/SignUpPage";
+import HomePage from "./components/HomePage.jsx";
+import SignInPage from "./components/signIn-SignUp/SignInPage.tsx";
+import SignUpPage from "./components/signIn-SignUp/SignUpPage.tsx";
 import { AppProvider } from './components/AppContext';
 
 /*  ===============================================

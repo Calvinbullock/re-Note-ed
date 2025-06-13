@@ -109,32 +109,40 @@ function getThemeFromLocalStorage(): string {
  * @returns {[boolean, string]} A tuple where the first element is `true` if valid, `false` otherwise.
  * The second element is an empty string if valid, or an error message if invalid.
  */
-function validateNoteData(data: Note): (string | boolean)[] {
-    // blank date is a valid state
-    if (data.dateAdded !== "" && data.dueDate !== "") {
-        const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/; // date should match DD/MM/YYYY
+function validateNoteData(data: Note | Partial<Note>): [boolean, string] {
+    if (data.dateAdded !== undefined && data.dueDate !== undefined) {
+        // blank date is a valid state
+        if (data.dateAdded !== "" && data.dueDate !== "") {
+            const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/; // date should match DD/MM/YYYY
 
-        // due date check
-        if (!dateRegex.test(data.dueDate)) {
-            return [ false, "Due Date Error" ];
+            // due date check
+            if (!dateRegex.test(data.dueDate)) {
+                return [ false, "Due Date Error" ];
+            }
         }
     }
 
-    // Due date is in the past
-    const dateAddedMs = new Date(data.dateAdded).getTime(); // in milisecs
-    const dueDateMs = new Date(data.dueDate).getTime(); // in milisecs
-    if (dueDateMs <= dateAddedMs) {
-        return [ false, "Due Date Error" ];
+    if (data.dateAdded !== undefined && data.dueDate !== undefined) {
+        // Due date is in the past
+        const dateAddedMs = new Date(data.dateAdded).getTime(); // in milisecs
+        const dueDateMs = new Date(data.dueDate).getTime(); // in milisecs
+        if (dueDateMs <= dateAddedMs) {
+            return [ false, "Due Date Error" ];
+        }
+    } 
+
+    if (data.title !== undefined) {
+        // check title is not longer then 50 characters
+        if (data.title.length > 50) {
+            return [ false, `Title text is ${data.title.length - 50} charictors too long` ];
+        }
     }
 
-    // check title is not longer then 50 characters
-    if (data.title.length > 50) {
-        return [ false, `Title text is ${data.title.length - 50} charictors too long` ];
-    }
-
-    // check content text is not longer then 450 characters
-    if (data.text.length > 450) {
-        return [ false, `Content text is ${data.text.length - 450} charictors too long` ];
+    if (data.text !== undefined) {
+        // check content text is not longer then 450 characters
+        if (data.text.length > 450) {
+            return [ false, `Content text is ${data.text.length - 450} charictors too long` ];
+        }
     }
 
     // BUG: not quite working yet
@@ -144,7 +152,6 @@ function validateNoteData(data: Note): (string | boolean)[] {
     //if (Math.abs(dateAddedMs - data.dateAddedEpoch) > 1000 || !data.dateAddedEpoch || !data.dateAdded) {
     //    //return 2;
     //}
-
     return [ true, "" ];
 }
 
@@ -156,8 +163,7 @@ function validateNoteData(data: Note): (string | boolean)[] {
  * @param {string} [data.text] - The text content property.
  * @returns {object} The formatted data object.
  */
-function formateEditData(data: Note): Note {
-    // set all undefined to empty string
+function formateEditData(data: Note | Partial<Note>): Note | Partial<Note> {
     if (data.title === undefined) {data.title = ""}
     if (data.text === undefined) {data.text = ""}
 
@@ -174,7 +180,7 @@ function formateEditData(data: Note): Note {
  * @param {string} [data.text] - The content text of the note.
  * @returns {object} The formatted data object.
  */
-function formateData(data: Note): Note {
+function formateData(data: Note | Partial<Note>): Note | Partial<Note> {
     // set all undefined to empty string
     if (data.dateAddedEpoch === undefined) {data.dateAddedEpoch = null}
     if (data.dueDate === undefined) {data.dueDate = ""}

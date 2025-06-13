@@ -17,13 +17,13 @@ export default function SignUp() {
 
     const { setIsLogedIn } = useAppContext();
 
-    const handleEmailEntry = (event) => {
+    const handleEmailEntry = (event: any) => {
         setEmailValue(event.target.value);
     }
-    const handlePassword1Entry = (event) => {
+    const handlePassword1Entry = (event: any) => {
         setPassword1(event.target.value);
     }
-    const handlePassword2Entry = (event) => {
+    const handlePassword2Entry = (event: any) => {
         setPassword2(event.target.value);
     }
 
