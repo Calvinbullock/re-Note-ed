@@ -1,5 +1,4 @@
-
-@import url('../App.css');
+@import url("../App.css");
 
 /* ==============================================================================
 note card Component
@@ -11,7 +10,7 @@ note card Component
     margin: auto;
 
     padding: 1rem;
-    padding-top: .1rem;
+    padding-top: 0.1rem;
     padding-bottom: 4.5rem;
 
     position: relative;
@@ -63,7 +62,7 @@ note card Component
 
 @media (max-width: 600px) {
     .noteCard {
-        margin-top: .1rem;
-        margin-bottom: .1rem;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
     }
 }

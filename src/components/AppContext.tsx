@@ -1,6 +1,5 @@
-
-import React, { createContext, useContext, useState } from 'react';
-import { getThemeFromLocalStorage } from '../utils/utils.ts';
+import React, { createContext, useContext, useState } from "react";
+import { getThemeFromLocalStorage } from "../utils/utils.ts";
 
 const AppContext = createContext({});
 
@@ -8,12 +7,11 @@ const AppContext = createContext({});
  *  COMPONENT DEFINITION
  * ============================================= */
 export const AppProvider = ({ children }) => {
-
     /*  =======================================================================
      *      Theme State
      * ===================================================================== */
     const [theme, setTheme] = useState(getThemeFromLocalStorage);
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
 
     const toggleTheme = () => {
         setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
@@ -31,19 +29,19 @@ export const AppProvider = ({ children }) => {
      *      Note Editor State
      * ===================================================================== */
 
-    const [ wasEditNoteClicked, setEditNoteWasClicked] = useState(false);
+    const [wasEditNoteClicked, setEditNoteWasClicked] = useState(false);
 
     /*  =======================================================================
      *     searchTarget
      * ===================================================================== */
 
-    const [ searchTarget, setSearchTarget ] = useState("");
+    const [searchTarget, setSearchTarget] = useState("");
 
     /*  =======================================================================
      *     LogInStat
      * ===================================================================== */
 
-    const [ isLogedIn, setIsLogedIn] = useState("");
+    const [isLogedIn, setIsLogedIn] = useState("");
 
     /*  =======================================================================
      *      context values
@@ -63,11 +61,7 @@ export const AppProvider = ({ children }) => {
         setIsLogedIn,
     };
 
-    return (
-        <AppContext.Provider value={value}>
-            {children}
-        </AppContext.Provider>
-    );
+    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export const useAppContext = () => useContext(AppContext);

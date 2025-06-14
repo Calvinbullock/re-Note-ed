@@ -1,9 +1,8 @@
-
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "./../../config/firebase.ts";
-import { useAppContext } from "../AppContext.tsx"
+import { useAppContext } from "../AppContext.tsx";
 
-import "./Nav.css"
+import "./Nav.css";
 
 /*  ===============================================
  *  COMPONENT DEFINITION
@@ -17,7 +16,7 @@ export default function Nav() {
      * ============================================= */
     const handleSignIn = () => {
         setIsLogedIn(true);
-        navigate('/signIn');
+        navigate("/signIn");
     };
 
     /*  ===============================================
@@ -25,7 +24,7 @@ export default function Nav() {
      * ============================================= */
     const handleSignOut = () => {
         setIsLogedIn(false);
-        auth.signOut()
+        auth.signOut();
     };
 
     /*  ===============================================
@@ -33,18 +32,20 @@ export default function Nav() {
      * ============================================= */
     const handleDarkModeChange = () => {
         toggleTheme();
-    }
+    };
 
     /*  ===============================================
      *  Search Notes
      * ============================================= */
     const handleSearch = (event) => {
-        setSearchTarget(event.target.value)
+        setSearchTarget(event.target.value);
     };
 
     return (
         <div className="nav">
-            <Link to="/"><img src="" alt="logo" /></Link>
+            <Link to="/">
+                <img src="" alt="logo" />
+            </Link>
             <input
                 aria-label="searchBar"
                 onChange={handleSearch}
@@ -55,28 +56,33 @@ export default function Nav() {
             />
             <ul id="suggestionList"></ul>
 
-            {(auth.currentUser == null) ?
-                (
-                    <button
-                        aria-label="SignIn"
-                        onClick={handleSignIn}
-                        id="signIn-button"
-                        type=""
-                    >Sign In</button>
-                ) : (
-                    <button
-                        aria-label="SignOut"
-                        onClick={handleSignOut}
-                        id="signIn-button"
-                        type=""
-                    >Sign Out</button>
-                )}
+            {auth.currentUser == null ? (
+                <button
+                    aria-label="SignIn"
+                    onClick={handleSignIn}
+                    id="signIn-button"
+                    type=""
+                >
+                    Sign In
+                </button>
+            ) : (
+                <button
+                    aria-label="SignOut"
+                    onClick={handleSignOut}
+                    id="signIn-button"
+                    type=""
+                >
+                    Sign Out
+                </button>
+            )}
             <button
                 aria-label="Dark Mode Toggle"
                 onClick={handleDarkModeChange}
                 id="dark-mode-switch"
                 type=""
-            >Dark Mode</button>
+            >
+                Dark Mode
+            </button>
         </div>
     );
 }

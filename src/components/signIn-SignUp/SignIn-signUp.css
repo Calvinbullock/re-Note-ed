@@ -1,5 +1,4 @@
-
-@import url('../../App.css');
+@import url("../../App.css");
 
 /* ==============================================================================
 signUp / signIn - component
@@ -31,7 +30,7 @@ signUp / signIn - component
 
 .login-box input {
     border-radius: var(--corner-radius);
-    margin: .5rem;
+    margin: 0.5rem;
     width: 80%;
 }
 
@@ -40,7 +39,7 @@ signUp / signIn - component
 }
 
 #alt-sign-up {
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 /* ------------ Errors Msg ------------ */
@@ -84,5 +83,3 @@ signUp / signIn - component
     -webkit-text-fill-color: var(--text);
     -webkit-box-shadow: 0 0 0px 1000px var(--nav-input-dark) inset;
 }
-
-

@@ -10,7 +10,7 @@ function clearInput(inputId: string) {
     const inputElement = document.getElementById(inputId) as HTMLInputElement;
 
     if (inputElement) {
-        inputElement.value = '';
+        inputElement.value = "";
     }
 }
 
@@ -86,7 +86,7 @@ function clearNoteLocalStorage() {
  * console.log(`Current theme: ${currentTheme}`);
  */
 function getThemeFromLocalStorage(): string {
-    let theme = localStorage.getItem('theme');
+    let theme = localStorage.getItem("theme");
 
     if (theme == null || theme === "light-theme") {
         theme = "light-theme";
@@ -117,7 +117,7 @@ function validateNoteData(data: Note | Partial<Note>): [boolean, string] {
 
             // due date check
             if (!dateRegex.test(data.dueDate)) {
-                return [ false, "Due Date Error" ];
+                return [false, "Due Date Error"];
             }
         }
     }
@@ -127,21 +127,27 @@ function validateNoteData(data: Note | Partial<Note>): [boolean, string] {
         const dateAddedMs = new Date(data.dateAdded).getTime(); // in milisecs
         const dueDateMs = new Date(data.dueDate).getTime(); // in milisecs
         if (dueDateMs <= dateAddedMs) {
-            return [ false, "Due Date Error" ];
+            return [false, "Due Date Error"];
         }
-    } 
+    }
 
     if (data.title !== undefined) {
         // check title is not longer then 50 characters
         if (data.title.length > 50) {
-            return [ false, `Title text is ${data.title.length - 50} charictors too long` ];
+            return [
+                false,
+                `Title text is ${data.title.length - 50} charictors too long`,
+            ];
         }
     }
 
     if (data.text !== undefined) {
         // check content text is not longer then 450 characters
         if (data.text.length > 450) {
-            return [ false, `Content text is ${data.text.length - 450} charictors too long` ];
+            return [
+                false,
+                `Content text is ${data.text.length - 450} charictors too long`,
+            ];
         }
     }
 
@@ -152,7 +158,7 @@ function validateNoteData(data: Note | Partial<Note>): [boolean, string] {
     //if (Math.abs(dateAddedMs - data.dateAddedEpoch) > 1000 || !data.dateAddedEpoch || !data.dateAdded) {
     //    //return 2;
     //}
-    return [ true, "" ];
+    return [true, ""];
 }
 
 /**
@@ -164,8 +170,12 @@ function validateNoteData(data: Note | Partial<Note>): [boolean, string] {
  * @returns {object} The formatted data object.
  */
 function formateEditData(data: Note | Partial<Note>): Note | Partial<Note> {
-    if (data.title === undefined) {data.title = ""}
-    if (data.text === undefined) {data.text = ""}
+    if (data.title === undefined) {
+        data.title = "";
+    }
+    if (data.text === undefined) {
+        data.text = "";
+    }
 
     return data;
 }
@@ -182,10 +192,18 @@ function formateEditData(data: Note | Partial<Note>): Note | Partial<Note> {
  */
 function formateData(data: Note | Partial<Note>): Note | Partial<Note> {
     // set all undefined to empty string
-    if (data.dateAddedEpoch === undefined) {data.dateAddedEpoch = null}
-    if (data.dueDate === undefined) {data.dueDate = ""}
-    if (data.title === undefined) {data.title = ""}
-    if (data.text === undefined) {data.text = ""}
+    if (data.dateAddedEpoch === undefined) {
+        data.dateAddedEpoch = null;
+    }
+    if (data.dueDate === undefined) {
+        data.dueDate = "";
+    }
+    if (data.title === undefined) {
+        data.title = "";
+    }
+    if (data.text === undefined) {
+        data.text = "";
+    }
 
     return data;
 }
@@ -200,4 +218,4 @@ export {
     validateNoteData,
     formateEditData,
     formateData,
-}
+};
