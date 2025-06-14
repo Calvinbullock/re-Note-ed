@@ -1,7 +1,7 @@
 
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from "./../../config/firebase.ts";
-import { useAppContext } from "../AppContext"
+import { useAppContext } from "../AppContext.tsx"
 
 import "./Nav.css"
 

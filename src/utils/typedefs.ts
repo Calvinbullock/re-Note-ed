@@ -8,3 +8,20 @@ export interface Note {
     userId: string,
     id: string
 }
+
+/*
+export interface _AppContext {
+        // theme dark / light
+        theme,
+        toggleTheme,
+        // note
+        wasEditNoteClicked,
+        setEditNoteWasClicked,
+        // search Target
+        searchTarget,
+        setSearchTarget,
+        // login stat
+        isLogedIn,
+        setIsLogedIn,
+}
+*/

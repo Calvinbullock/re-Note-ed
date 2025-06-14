@@ -8,7 +8,7 @@ import React from "react";
 
 // components
 import { setNoteLocalStorage } from "../utils/utils.ts";
-import { useAppContext } from './AppContext';
+import { useAppContext } from './AppContext.tsx';
 import { Note } from "../utils/typedefs.ts";
 
 import "./NoteCard.css"
@@ -17,7 +17,7 @@ import "./NoteCard.css"
  *  COMPONENT DEFINITION
  * ============================================= */
 export default function NoteCard(props: any) {
-    const { theme, setEditNoteWasClicked} = useAppContext();
+    const { theme, setEditNoteWasClicked }: any = useAppContext();
 
     /*  ==============================================
     *  Delete Note

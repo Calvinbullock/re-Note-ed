@@ -10,7 +10,7 @@ import { collection, onSnapshot} from "firebase/firestore";
 import Nav from "./nav/Nav";
 import NoteCard from "./NoteCard.tsx";
 import NoteEditor from "./NoteEditor.tsx";
-import { useAppContext } from './AppContext';
+import { useAppContext } from './AppContext.tsx';
 
 import "./HomePage.css"
 

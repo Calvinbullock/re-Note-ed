@@ -6,14 +6,14 @@ import { auth } from "../../config/firebase.ts";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import "./SignIn-signUp.css"
-import { useAppContext } from "../AppContext";
+import { useAppContext } from "../AppContext.tsx";
 
 export default function SignIn() {
     const [ emailValue, setEmailValue ] = useState("")
     const [ passwordValue, setPassword] = useState("")
     const navigate = useNavigate();
 
-    const {setIsLogedIn} = useAppContext();
+    const {setIsLogedIn}: any = useAppContext();
 
     const handleEmailEntry = (event: any) => {
         setEmailValue(event.target.value);

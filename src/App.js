@@ -7,7 +7,7 @@ import './App.css';
 import HomePage from "./components/HomePage.jsx";
 import SignInPage from "./components/signIn-SignUp/SignInPage.tsx";
 import SignUpPage from "./components/signIn-SignUp/SignUpPage.tsx";
-import { AppProvider } from './components/AppContext';
+import { AppProvider } from './components/AppContext.tsx';
 
 /*  ===============================================
  *  COMPONENT DEFINITION

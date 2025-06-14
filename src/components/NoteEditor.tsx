@@ -6,7 +6,7 @@ import { collection, addDoc, doc, updateDoc} from "firebase/firestore";
 import { db, auth } from "./../config/firebase.ts";
 
 // components
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "./AppContext.tsx";
 import {
     clearInput,
     getNoteLocalStorage,
@@ -31,7 +31,7 @@ export default function NoteEditor() {
     const [ noteId, setId] = useState("")
     const [ activateNotifi, setActivateNotifi] = useState("")
 
-    const { wasEditNoteClicked, setEditNoteWasClicked} = useAppContext();
+    const { wasEditNoteClicked, setEditNoteWasClicked }: any = useAppContext();
 
     // value changes handlers
     const handleIdEntry = (event: any) => {
