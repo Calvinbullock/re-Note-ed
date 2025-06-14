@@ -2,7 +2,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import { getThemeFromLocalStorage } from '../utils/utils.ts';
 
-const AppContext = createContext();
+const AppContext = createContext({});
 
 /*  ===============================================
  *  COMPONENT DEFINITION
