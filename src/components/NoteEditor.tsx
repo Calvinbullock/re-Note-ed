@@ -1,22 +1,23 @@
 // react / firebase
 import React, { useState, useEffect } from "react";
-import { collection, addDoc, doc, updateDoc} from "firebase/firestore";
+import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 // config
-import { db, auth } from "./../config/firebase";
+import { db, auth } from "./../config/firebase.ts";
 
 // components
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "./AppContext.tsx";
 import {
     clearInput,
     getNoteLocalStorage,
     clearNoteLocalStorage,
     validateNoteData,
     formateData,
-    formateEditData
-} from "../utils/utils";
+    formateEditData,
+} from "../utils/utils.ts";
 
-import "./NoteEditor.css"
+import "./NoteEditor.css";
+import { Note } from "../utils/typedefs.ts";
 
 /*  ===============================================
  *  COMPONENT DEFINITION
@@ -24,27 +25,27 @@ import "./NoteEditor.css"
 export default function NoteEditor() {
     const notesCollectionRef = collection(db, "Notes"); // dataBase connection
 
-    const [ titleValue, setTitleEntry ] = useState("")
-    const [ dueDateValue, setDueDateEntry ] = useState("")
-    const [ textValue, setTextEntry ] = useState("")
-    const [ noteId, setId] = useState("")
-    const [ activateNotifi, setActivateNotifi] = useState("")
+    const [titleValue, setTitleEntry] = useState("");
+    const [dueDateValue, setDueDateEntry] = useState("");
+    const [textValue, setTextEntry] = useState("");
+    const [noteId, setId] = useState("");
+    const [activateNotifi, setActivateNotifi] = useState("");
 
-    const { wasEditNoteClicked, setEditNoteWasClicked} = useAppContext();
+    const { wasEditNoteClicked, setEditNoteWasClicked }: any = useAppContext();
 
     // value changes handlers
-    const handleIdEntry = (event) => {
+    const handleIdEntry = (event: any) => {
         setId(event.target.value);
-    }
-    const handleTitleEntry = (event) => {
+    };
+    const handleTitleEntry = (event: any) => {
         setTitleEntry(event.target.value);
-    }
-    const handleDueDateChange = (event) => {
+    };
+    const handleDueDateChange = (event: any) => {
         setDueDateEntry(event.target.value);
-    }
-    const handleTextEntry = (event) => {
+    };
+    const handleTextEntry = (event: any) => {
         setTextEntry(event.target.value);
-    }
+    };
 
     /*  ===============================================
      *  Clear Editor
@@ -72,14 +73,21 @@ export default function NoteEditor() {
      *  Auto Adjust the text area to fit the content
      * ============================================= */
     useEffect(() => {
-        const textarea = document.querySelector('.noteEditor textarea');
-        const container = textarea.parentNode;
+        const textarea = document.querySelector(
+            ".noteEditor textarea",
+        ) as HTMLTextAreaElement | null;
 
-        textarea.addEventListener('input', () => {
-            textarea.style.height = 'auto';
-            textarea.style.height = textarea.scrollHeight + 'px';
-            container.style.height = 'auto';
-        });
+        if (textarea) {
+            const container = textarea.parentNode as HTMLElement | null;
+
+            if (container) {
+                textarea.addEventListener("input", () => {
+                    textarea.style.height = "auto";
+                    textarea.style.height = textarea.scrollHeight + "px";
+                    container.style.height = "auto";
+                });
+            }
+        }
     }, []);
 
     /*  ==============================================================================================
@@ -97,11 +105,10 @@ export default function NoteEditor() {
         if (noteEdit != null) {
             setId(noteEdit.id);
             setTitleEntry(noteEdit.title);
-            setDueDateEntry(noteEdit.dueDate)
+            setDueDateEntry(noteEdit.dueDate);
             setTextEntry(noteEdit.text);
         }
-
-    }, [wasEditNoteClicked])
+    }, [wasEditNoteClicked]);
 
     /*  ===============================================
      *  Submit Edited Note
@@ -110,22 +117,21 @@ export default function NoteEditor() {
     const submitNoteEdit = async () => {
         const docRef = doc(db, "Notes", noteId);
 
-        let data = {
+        let data: Partial<Note> = {
             title: titleValue,
             dueDate: dueDateValue,
             text: textValue,
             modList: [],
-        }
+        };
 
         data = formateEditData(data);
-        const [ isValid, errorMsg ] = validateNoteData(data);
+        const [isValid, errorMsg] = validateNoteData(data);
 
         setActivateNotifi(errorMsg);
         if (isValid) {
             try {
                 await updateDoc(docRef, data);
                 clearEditor();
-
             } catch (err) {
                 console.error(err);
             }
@@ -142,25 +148,24 @@ export default function NoteEditor() {
     const submitNote = async () => {
         const addDate = new Date(Date.now());
 
-        let data = {
+        let data: Partial<Note> = {
             title: titleValue,
             dateAddedEpoch: addDate,
-            dateAdded: addDate.toLocaleDateString('en-GB'),
+            dateAdded: addDate.toLocaleDateString("en-GB"),
             dueDate: dueDateValue,
             text: textValue,
             modList: [],
             userId: auth?.currentUser?.uid,
-        }
+        };
 
         data = formateData(data);
-        const [ isValid, errorMsg ] = validateNoteData(data);
+        const [isValid, errorMsg] = validateNoteData(data);
 
         setActivateNotifi(errorMsg);
         if (isValid) {
             try {
                 await addDoc(notesCollectionRef, data);
                 clearEditor();
-
             } catch (err) {
                 console.error(err);
             }
@@ -175,7 +180,8 @@ export default function NoteEditor() {
                 name="idEntry"
                 value={noteId}
                 onChange={handleIdEntry}
-            /><br/>
+            />
+            <br />
             <input
                 aria-label="Input Note title"
                 id="note-title-entry"
@@ -184,7 +190,8 @@ export default function NoteEditor() {
                 value={titleValue}
                 onChange={handleTitleEntry}
                 placeholder="Title"
-            /><br/>
+            />
+            <br />
             <input
                 aria-label="Input Note Due Date"
                 id="note-due-date-entry"
@@ -193,41 +200,39 @@ export default function NoteEditor() {
                 value={dueDateValue}
                 onChange={handleDueDateChange}
                 placeholder="Due Date - dd/mm/yyyy"
-            /><br/>
+            />
+            <br />
             <textarea
                 aria-label="Write Note"
                 id="note-text-entry"
                 value={textValue}
                 onChange={handleTextEntry}
                 placeholder="take a note"
-            ></textarea><br/>
+            ></textarea>
+            <br />
 
             <div className="noteEditor-buttons">
-
-                {(wasEditNoteClicked) ?
-                    (
-                        <button
-                            aria-label="Submit Edited Note"
-                            onClick={submitNoteEdit}
-                        >Re-Add Note</button>
-                    ) : (
-                        <button
-                            aria-label="Submit Note"
-                            onClick={submitNote}
-                        >Add Note</button>
-                    )
-                }
-                <button
-                    aria-label="Clear Note Editor"
-                    onClick={clearEditor}
-                >clear</button>
+                {wasEditNoteClicked ? (
+                    <button
+                        aria-label="Submit Edited Note"
+                        onClick={submitNoteEdit}
+                    >
+                        Re-Add Note
+                    </button>
+                ) : (
+                    <button aria-label="Submit Note" onClick={submitNote}>
+                        Add Note
+                    </button>
+                )}
+                <button aria-label="Clear Note Editor" onClick={clearEditor}>
+                    clear
+                </button>
             </div>
             {activateNotifi === "" ? (
                 <></> // Or null
             ) : (
-                    <p className="errorMsg">{activateNotifi}</p>
-                )}
+                <p className="errorMsg">{activateNotifi}</p>
+            )}
         </div>
     );
 }
-

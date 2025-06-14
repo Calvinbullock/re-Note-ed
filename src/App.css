@@ -1,4 +1,3 @@
-
 :root {
     --error: darkred;
     --dark-error: red;
@@ -17,7 +16,7 @@
     --placeholder-dark: #adb5bd;
 
     --nav-input-dark: #aec3b0;
-    --nav-text-input-dark:  #0d1b2a;
+    --nav-text-input-dark: #0d1b2a;
     --nav-placeholder-dark: #0d1b2a;
 
     --note-button-color-dark: #140033;
@@ -57,7 +56,8 @@ main {
     max-width: 1500px;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
