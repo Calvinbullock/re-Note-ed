@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { AppContextType } from "../utils/typedefs";
 import { getThemeFromLocalStorage } from "../utils/utils";
 
 const AppContext = createContext({});
@@ -46,7 +47,7 @@ export const AppProvider = ({ children }: any) => {
     /*  =======================================================================
      *      context values
      * ===================================================================== */
-    const value = {
+    const value: AppContextType = {
         // theme dark / light
         theme,
         toggleTheme,

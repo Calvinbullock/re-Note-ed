@@ -1,5 +1,5 @@
 // react / firebase
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 // config
@@ -34,16 +34,18 @@ export default function NoteEditor() {
     const { wasEditNoteClicked, setEditNoteWasClicked }: any = useAppContext();
 
     // value changes handlers
-    const handleIdEntry = (event: any) => {
+    const handleIdEntry = (event: React.ChangeEvent<HTMLInputElement>) => {
         setId(event.target.value);
     };
-    const handleTitleEntry = (event: any) => {
+    const handleTitleEntry = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitleEntry(event.target.value);
     };
-    const handleDueDateChange = (event: any) => {
+    const handleDueDateChange = (
+        event: React.ChangeEvent<HTMLInputElement>,
+    ) => {
         setDueDateEntry(event.target.value);
     };
-    const handleTextEntry = (event: any) => {
+    const handleTextEntry = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setTextEntry(event.target.value);
     };
 

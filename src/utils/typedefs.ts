@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Note {
     title: string;
     dateAddedEpoch: Date | null;
@@ -9,19 +11,17 @@ export interface Note {
     id: string;
 }
 
-/*
-export interface _AppContext {
-        // theme dark / light
-        theme,
-        toggleTheme,
-        // note
-        wasEditNoteClicked,
-        setEditNoteWasClicked,
-        // search Target
-        searchTarget,
-        setSearchTarget,
-        // login stat
-        isLogedIn,
-        setIsLogedIn,
+export interface AppContextType {
+    // Theme State
+    theme: string;
+    toggleTheme: () => void; // this is saying function the has void return
+    // Note Editor State
+    wasEditNoteClicked: boolean;
+    setEditNoteWasClicked: React.Dispatch<React.SetStateAction<boolean>>;
+    // Search Target
+    searchTarget: string;
+    setSearchTarget: React.Dispatch<React.SetStateAction<string>>;
+    // Login Stat
+    isLogedIn: string;
+    setIsLogedIn: React.Dispatch<React.SetStateAction<string>>; // Consider React.Dispatch<React.SetStateAction<boolean>>
 }
-*/
