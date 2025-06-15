@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
-import { getThemeFromLocalStorage } from "../utils/utils.ts";
+import { createContext, useContext, useState } from "react";
+import { getThemeFromLocalStorage } from "../utils/utils";
 
 const AppContext = createContext({});
 
 /*  ===============================================
  *  COMPONENT DEFINITION
  * ============================================= */
-export const AppProvider = ({ children }) => {
+export const AppProvider = ({ children }: any) => {
     /*  =======================================================================
      *      Theme State
      * ===================================================================== */

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "../../config/firebase.ts";
+import { auth } from "../../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import "./SignIn-signUp.css";
-import { useAppContext } from "../AppContext.tsx";
+import { useAppContext } from "../AppContext";
 
 export default function SignIn() {
     const [emailValue, setEmailValue] = useState("");

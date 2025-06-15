@@ -1,12 +1,12 @@
 // react / firebase
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 // config
-import { db, auth } from "./../config/firebase.ts";
+import { db, auth } from "./../config/firebase";
 
 // components
-import { useAppContext } from "./AppContext.tsx";
+import { useAppContext } from "./AppContext";
 import {
     clearInput,
     getNoteLocalStorage,
@@ -14,10 +14,10 @@ import {
     validateNoteData,
     formateData,
     formateEditData,
-} from "../utils/utils.ts";
+} from "../utils/utils";
 
 import "./NoteEditor.css";
-import { Note } from "../utils/typedefs.ts";
+import { Note } from "../utils/typedefs";
 
 /*  ===============================================
  *  COMPONENT DEFINITION

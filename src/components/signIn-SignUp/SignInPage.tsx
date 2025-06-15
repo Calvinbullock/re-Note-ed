@@ -1,6 +1,5 @@
-import React from "react";
 import Nav from "./../nav/Nav";
-import SignIn from "./SignIn.tsx";
+import SignIn from "./SignIn";
 
 import "./SignIn-signUp-page.css";
 

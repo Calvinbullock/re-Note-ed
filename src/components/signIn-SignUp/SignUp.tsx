@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { auth } from "../../config/firebase.ts";
+import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import "./SignIn-signUp.css";
-import { useAppContext } from "../AppContext.tsx";
+import { useAppContext } from "../AppContext";
 
 export default function SignUp() {
     const [emailValue, setEmailValue] = useState("");

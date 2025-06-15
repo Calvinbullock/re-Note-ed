@@ -1,5 +1,5 @@
 // react modules
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // firebase
 import { db } from "./../config/firebase.ts";
