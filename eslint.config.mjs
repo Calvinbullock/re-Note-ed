@@ -3,11 +3,10 @@ import js from "@eslint/js";
 import react from "eslint-plugin-react";
 import tsPlugin from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import globals from "globals"; // <--- Make sure this is uncommented or added
+import globals from "globals";
 
 export default [
     {
-        // This is your main configuration for source files (JS/JSX/TS/TSX)
         files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"],
         ignores: ["eslint.config.mjs"],
 
@@ -21,11 +20,10 @@ export default [
                 },
                 ecmaVersion: 2022,
                 sourceType: "module",
-                project: "./tsconfig.json", // Make sure this path is correct and tsconfig.json exists
+                project: "./tsconfig.json",
             },
             globals: {
-                ...globals.browser, // Standard browser globals
-                // ...globals.node, // Uncomment if you have Node.js-specific code in your main app
+                ...globals.browser,
             },
         },
 
