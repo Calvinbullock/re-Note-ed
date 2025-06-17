@@ -1,5 +1,4 @@
-
-@import url('../../App.css');
+@import url("../../App.css");
 
 .test {
     background-color: var(--background-light);
@@ -43,7 +42,7 @@ Nav Component
     background-color: var(--nav-input-light);
     margin-top: 0.5%;
     margin-left: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
     width: 10%;
 }
 

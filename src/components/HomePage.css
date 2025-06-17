@@ -1,5 +1,4 @@
-
-@import url('../App.css');
+@import url("../App.css");
 
 /* ==============================================================================
 Home Component
@@ -52,7 +51,7 @@ Home Component
     width: 30%;
 
     border-radius: var(--corner-radius);
-    padding: .2rem;
+    padding: 0.2rem;
     padding-left: 1rem;
 }
 

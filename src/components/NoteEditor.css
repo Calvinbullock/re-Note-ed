@@ -1,5 +1,4 @@
-
-@import url('../App.css');
+@import url("../App.css");
 
 /* ==============================================================================
 * note Editor Component
@@ -27,7 +26,7 @@
     width: 90%;
 
     padding: 1rem;
-    padding-top: .1rem;
+    padding-top: 0.1rem;
 }
 
 .noteEditor input {
@@ -89,4 +88,3 @@
     background: var(--hover-button-bg-dark);
     color: var(--hover-button-text-dark);
 }
-
