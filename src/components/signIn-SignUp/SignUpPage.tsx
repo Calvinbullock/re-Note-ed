@@ -4,10 +4,10 @@ import SignUp from "./SignUp";
 import "./SignIn-signUp-page.css";
 
 export default function SignInPage() {
-    return (
-        <div className="login-page page">
-            <Nav />
-            <SignUp />
-        </div>
-    );
+  return (
+    <div className="login-page page">
+      <Nav />
+      <SignUp />
+    </div>
+  );
 }

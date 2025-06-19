@@ -15,60 +15,60 @@ import "./NoteCard.css";
  *  COMPONENT DEFINITION
  * ============================================= */
 export default function NoteCard(props: any) {
-    const { theme, setEditNoteWasClicked }: any = useAppContext();
+  const { theme, setEditNoteWasClicked }: any = useAppContext();
 
-    /*  ==============================================
-     *  Delete Note
-     * ============================================= */
-    const deleteNote = async () => {
-        try {
-            const noteDoc = doc(db, "Notes", props.id);
-            await deleteDoc(noteDoc);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+  /*  ==============================================
+   *  Delete Note
+   * ============================================= */
+  const deleteNote = async () => {
+    try {
+      const noteDoc = doc(db, "Notes", props.id);
+      await deleteDoc(noteDoc);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-    /* ==============================================
-     *  Trigger Note Edit
-     * ============================================= */
-    const editNote = () => {
-        setNoteLocalStorage(props);
-        setEditNoteWasClicked(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+  /* ==============================================
+   *  Trigger Note Edit
+   * ============================================= */
+  const editNote = () => {
+    setNoteLocalStorage(props);
+    setEditNoteWasClicked(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-    return (
-        <div
-            className={`noteCard ${theme} ${props.modList?.map((mod: Note) => `${mod}`)} `}
-            id={props.id}
+  return (
+    <div
+      className={`noteCard ${theme} ${props.modList?.map((mod: Note) => `${mod}`)} `}
+      id={props.id}
+    >
+      <h3>{props.title}</h3>
+      <p>Note From: {props.dateAdded}</p>
+
+      {props.dueDate !== "" && <p>Due On: {props.dueDate}</p>}
+
+      <p>{props.text}</p>
+
+      <div className="noteCard-buttons">
+        <button
+          className="delete-note-button"
+          aria-label="Delete Note"
+          onClick={deleteNote}
+          type="button"
         >
-            <h3>{props.title}</h3>
-            <p>Note From: {props.dateAdded}</p>
+          DELETE
+        </button>
 
-            {props.dueDate !== "" && <p>Due On: {props.dueDate}</p>}
-
-            <p>{props.text}</p>
-
-            <div className="noteCard-buttons">
-                <button
-                    className="delete-note-button"
-                    aria-label="Delete Note"
-                    onClick={deleteNote}
-                    type="button"
-                >
-                    DELETE
-                </button>
-
-                <button
-                    className="edit-note-button"
-                    aria-label="Edit Note"
-                    onClick={editNote}
-                    type="button"
-                >
-                    EDIT
-                </button>
-            </div>
-        </div>
-    );
+        <button
+          className="edit-note-button"
+          aria-label="Edit Note"
+          onClick={editNote}
+          type="button"
+        >
+          EDIT
+        </button>
+      </div>
+    </div>
+  );
 }

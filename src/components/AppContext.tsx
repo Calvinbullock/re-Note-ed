@@ -8,61 +8,61 @@ const AppContext = createContext({});
  *  COMPONENT DEFINITION
  * ============================================= */
 export const AppProvider = ({ children }: any) => {
-    /*  =======================================================================
-     *      Theme State
-     * ===================================================================== */
-    const [theme, setTheme] = useState(getThemeFromLocalStorage);
-    localStorage.setItem("theme", theme);
+  /*  =======================================================================
+   *      Theme State
+   * ===================================================================== */
+  const [theme, setTheme] = useState(getThemeFromLocalStorage);
+  localStorage.setItem("theme", theme);
 
-    const toggleTheme = () => {
-        setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
+  const toggleTheme = () => {
+    setTheme(theme === "light-theme" ? "dark-theme" : "light-theme");
 
-        if (theme === "dark-theme") {
-            document.body.classList.remove("dark-theme");
-            document.body.classList.add("light-theme");
-        } else {
-            document.body.classList.remove("light-theme");
-            document.body.classList.add("dark-theme");
-        }
-    };
+    if (theme === "dark-theme") {
+      document.body.classList.remove("dark-theme");
+      document.body.classList.add("light-theme");
+    } else {
+      document.body.classList.remove("light-theme");
+      document.body.classList.add("dark-theme");
+    }
+  };
 
-    /*  =======================================================================
-     *      Note Editor State
-     * ===================================================================== */
+  /*  =======================================================================
+   *      Note Editor State
+   * ===================================================================== */
 
-    const [wasEditNoteClicked, setEditNoteWasClicked] = useState(false);
+  const [wasEditNoteClicked, setEditNoteWasClicked] = useState(false);
 
-    /*  =======================================================================
-     *     searchTarget
-     * ===================================================================== */
+  /*  =======================================================================
+   *     searchTarget
+   * ===================================================================== */
 
-    const [searchTarget, setSearchTarget] = useState("");
+  const [searchTarget, setSearchTarget] = useState("");
 
-    /*  =======================================================================
-     *     LogInStat
-     * ===================================================================== */
+  /*  =======================================================================
+   *     LogInStat
+   * ===================================================================== */
 
-    const [isLogedIn, setIsLogedIn] = useState("");
+  const [isLogedIn, setIsLogedIn] = useState("");
 
-    /*  =======================================================================
-     *      context values
-     * ===================================================================== */
-    const value: AppContextType = {
-        // theme dark / light
-        theme,
-        toggleTheme,
-        // note
-        wasEditNoteClicked,
-        setEditNoteWasClicked,
-        // search Target
-        searchTarget,
-        setSearchTarget,
-        // login stat
-        isLogedIn,
-        setIsLogedIn,
-    };
+  /*  =======================================================================
+   *      context values
+   * ===================================================================== */
+  const value: AppContextType = {
+    // theme dark / light
+    theme,
+    toggleTheme,
+    // note
+    wasEditNoteClicked,
+    setEditNoteWasClicked,
+    // search Target
+    searchTarget,
+    setSearchTarget,
+    // login stat
+    isLogedIn,
+    setIsLogedIn,
+  };
 
-    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
 export const useAppContext = () => useContext(AppContext);

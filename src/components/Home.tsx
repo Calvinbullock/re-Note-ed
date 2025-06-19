@@ -4,13 +4,12 @@ import Nav from "../components/nav/Nav";
 //import "./NotePage.css";
 
 export default function Home() {
-  return(
+  return (
     <>
-      <Nav/>
+      <Nav />
       <a href="/TaskPage">Task</a>
-      <br/>
+      <br />
       <a href="/NotePage">Note</a>
     </>
   );
-
 }
