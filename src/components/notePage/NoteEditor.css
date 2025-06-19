@@ -1,0 +1,90 @@
+@import url("../../App.css");
+
+/* ==============================================================================
+* note Editor Component
+============================================================================== */
+
+.dark-theme .noteEditor,
+.dark-theme .noteEditor input,
+.dark-theme .noteEditor textarea {
+  border: var(--text-dark) solid 1px;
+  background: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .noteEditor textarea,
+.dark-theme .noteEditor input {
+  border: none;
+}
+
+.noteEditor {
+  margin: auto;
+  border: var(--text-light) solid 1px;
+  border-radius: var(--corner-radius);
+
+  background-color: var(--background-light);
+  width: 90%;
+
+  padding: 1rem;
+  padding-top: 0.1rem;
+}
+
+.noteEditor input {
+  border: none;
+  border-radius: var(--corner-radius);
+  outline: none;
+
+  background-color: var(--background-light);
+  padding: 8px;
+  width: 90%;
+}
+
+.noteEditor textarea {
+  border: none;
+  border-radius: var(--corner-radius);
+  outline: none;
+  min-height: 50px;
+  resize: vertical;
+  resize: none;
+
+  background-color: var(--background-light);
+  padding: 8px;
+  width: 100%;
+}
+
+#note-id-entry {
+  display: none;
+}
+
+.errorMsg {
+  color: var(--dark-error);
+}
+
+/* ------------ buttons ------------ */
+
+.noteEditor-buttons {
+  display: flex;
+  gap: 10px;
+  bottom: 10px;
+  left: 10px;
+}
+
+.noteEditor button {
+  border-radius: var(--corner-radius);
+  background: var(--note-button-color-light);
+  border: var(--text-dark);
+}
+
+.noteEditor button:hover {
+  background: var(--hover-button-bg);
+}
+
+.dark-theme .noteEditor button {
+  border-radius: var(--corner-radius);
+  background: var(--background-dark);
+}
+
+.dark-theme .noteEditor button:hover {
+  background: var(--hover-button-bg-dark);
+  color: var(--hover-button-text-dark);
+}

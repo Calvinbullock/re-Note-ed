@@ -1,65 +1,65 @@
 :root {
-    --error: darkred;
-    --dark-error: red;
-    --valid: green;
+  --error: darkred;
+  --dark-error: red;
+  --valid: green;
 
-    /* LIGHT THEME */
-    --background-light: white;
-    --text-light: #00000d;
-    --nav-input-light: #f0f0f0;
-    --note-button-color-light: #f0f0f0;
-    --hover-button-bg: #d9d9d9;
+  /* LIGHT THEME */
+  --background-light: white;
+  --text-light: #00000d;
+  --nav-input-light: #f0f0f0;
+  --note-button-color-light: #f0f0f0;
+  --hover-button-bg: #d9d9d9;
 
-    /* DARK THEME */
-    --background-dark: #0d1b2a;
-    --text-dark: #f8f9fa;
-    --placeholder-dark: #adb5bd;
+  /* DARK THEME */
+  --background-dark: #0d1b2a;
+  --text-dark: #f8f9fa;
+  --placeholder-dark: #adb5bd;
 
-    --nav-input-dark: #aec3b0;
-    --nav-text-input-dark: #0d1b2a;
-    --nav-placeholder-dark: #0d1b2a;
+  --nav-input-dark: #aec3b0;
+  --nav-text-input-dark: #0d1b2a;
+  --nav-placeholder-dark: #0d1b2a;
 
-    --note-button-color-dark: #140033;
-    --hover-button-bg-dark: #aec3b0;
-    --hover-button-text-dark: #0d1b2a;
+  --note-button-color-dark: #140033;
+  --hover-button-bg-dark: #aec3b0;
+  --hover-button-text-dark: #0d1b2a;
 
-    /*DARK LINKS*/
-    --link-dark: #386641;
-    --link-clicked-dark: #6a994e;
-    --linka-hover-dark: #7c957f;
+  /*DARK LINKS*/
+  --link-dark: #386641;
+  --link-clicked-dark: #6a994e;
+  --linka-hover-dark: #7c957f;
 
-    /* OTHER */
-    --corner-radius: 20px;
+  /* OTHER */
+  --corner-radius: 20px;
 }
 
 .dark-theme input::placeholder {
-    color: var(--placeholder-dark);
+  color: var(--placeholder-dark);
 }
 
 .dark-theme textarea::placeholder {
-    color: var(--placeholder-dark);
+  color: var(--placeholder-dark);
 }
 
 .dark-theme link {
-    color: var(--link-dark);
+  color: var(--link-dark);
 }
 
 .dark-theme a:visited {
-    color: var(--link-clicked-dark);
+  color: var(--link-clicked-dark);
 }
 
 .home {
-    margin: auto;
+  margin: auto;
 }
 
 main {
-    max-width: 1500px;
+  max-width: 1500px;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 /* ==============================================================================
 Default react page styling
