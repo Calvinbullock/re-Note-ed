@@ -1,12 +1,10 @@
 # Calendar / Tasking Scheduling Proposal
 
-## Task View
+## overview
 
-### overview
+Used to track / manage items that need to be completed and remind the user to complete them.
 
-Used to track items that need to be completed and remind the user to complete them.
-
-### Task items
+## Task items
 
 - Add task CRUD API options
 - A task will have:
@@ -28,7 +26,6 @@ Used to track items that need to be completed and remind the user to complete th
 
 - Views:
     - daily
-        - will also show incomplete tasks from past days
     - weekly
     - monthly 
 
