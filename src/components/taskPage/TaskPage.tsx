@@ -11,10 +11,9 @@ import Nav from "./../nav/Nav";
 //import "./NotePage.css";
 
 export default function TaskPage() {
-
   const tasksCollectionRef = collection(db, "Tasks");
 
-  return(
+  return (
     <>
       <Nav />
     </>
