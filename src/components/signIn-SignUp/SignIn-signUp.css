@@ -5,81 +5,81 @@ signUp / signIn - component
 ============================================================================== */
 
 .dark-theme .login-box {
-    border: 1px solid var(--text-dark);
+  border: 1px solid var(--text-dark);
 }
 
 .dark-theme input {
-    background: var(--nav-input-dark);
-    background-color: var(--nav-input-dark);
-    color: var(--nav-text-input-dark);
+  background: var(--nav-input-dark);
+  background-color: var(--nav-input-dark);
+  color: var(--nav-text-input-dark);
 }
 
 .login-box {
-    border: 1px solid var(--text-light);
-    border-radius: var(--corner-radius);
-    width: 20%;
+  border: 1px solid var(--text-light);
+  border-radius: var(--corner-radius);
+  width: 20%;
 
-    margin: auto;
-    margin-top: 1rem;
-    padding: 2rem;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 2rem;
 }
 
 .login-box button {
-    border-radius: var(--corner-radius);
+  border-radius: var(--corner-radius);
 }
 
 .login-box input {
-    border-radius: var(--corner-radius);
-    margin: 0.5rem;
-    width: 80%;
+  border-radius: var(--corner-radius);
+  margin: 0.5rem;
+  width: 80%;
 }
 
 .dark-theme .login-box input::placeholder {
-    color: var(--nav-placeholder-dark);
+  color: var(--nav-placeholder-dark);
 }
 
 #alt-sign-up {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 /* ------------ Errors Msg ------------ */
 .login-box .errorMsg {
-    color: var(--error);
+  color: var(--error);
 }
 
 .dark-theme .login-box .errorMsg {
-    color: var(--dark-error);
+  color: var(--dark-error);
 }
 
 /* ------------ input valid - invalid ------------ */
 .login-box .invalid,
 .login-box input:invalid {
-    border-color: var(--error) !important;
-    border: 4px solid var(--error) !important;
+  border-color: var(--error) !important;
+  border: 4px solid var(--error) !important;
 }
 
 .login-box input:valid {
-    border-color: var(--valid);
-    border: 4px solid var(--valid);
+  border-color: var(--valid);
+  border: 4px solid var(--valid);
 }
 
 .dark-theme .invalid,
 .dark-theme .login-box input:invalid {
-    border-color: var(--error) !important;
-    border: 4px solid var(--error) !important;
-    background: var(--nav-input-dark) !important;
-    background-color: var(--nav-input-dark) !important;
+  border-color: var(--error) !important;
+  border: 4px solid var(--error) !important;
+  background: var(--nav-input-dark) !important;
+  background-color: var(--nav-input-dark) !important;
 }
 
 .dark-theme .login-box input:valid {
-    border-color: var(--valid);
-    border: 4px solid var(--valid);
-    background: var(--nav-input-dark);
-    background-color: var(--nav-input-dark);
+  border-color: var(--valid);
+  border: 4px solid var(--valid);
+  background: var(--nav-input-dark);
+  background-color: var(--nav-input-dark);
 }
 
 /* form auto fill styles */
 .dark-theme .login-box input:-webkit-autofill {
-    -webkit-text-fill-color: var(--text);
-    -webkit-box-shadow: 0 0 0px 1000px var(--nav-input-dark) inset;
+  -webkit-text-fill-color: var(--text);
+  -webkit-box-shadow: 0 0 0px 1000px var(--nav-input-dark) inset;
 }

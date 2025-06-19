@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 //import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-    // fireBase Keys
+  // fireBase Keys
 };
 
 // Initialize Firebase
