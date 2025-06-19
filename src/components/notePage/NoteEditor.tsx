@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
 // config
-import { db, auth } from "./../config/firebase";
+import { db, auth } from "./../../config/firebase";
 
 // components
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "./../AppContext";
 import {
     clearInput,
     getNoteLocalStorage,
@@ -14,10 +14,10 @@ import {
     validateNoteData,
     formateData,
     formateEditData,
-} from "../utils/utils";
+} from "../../utils/utils";
 
 import "./NoteEditor.css";
-import { Note } from "../utils/typedefs";
+import { Note } from "../../utils/typedefs";
 
 /*  ===============================================
  *  COMPONENT DEFINITION

@@ -2,16 +2,16 @@
 import { useEffect, useState } from "react";
 
 // firebase
-import { db } from "./../config/firebase.ts";
+import { db } from "./../../config/firebase.ts";
 import { collection, onSnapshot } from "firebase/firestore";
 
 // components
-import Nav from "./nav/Nav";
+import Nav from "./../nav/Nav";
 import NoteCard from "./NoteCard.tsx";
 import NoteEditor from "./NoteEditor.tsx";
-import { useAppContext } from "./AppContext.tsx";
+import { useAppContext } from "./../AppContext.tsx";
 
-import "./HomePage.css";
+import "./NotePage.css";
 
 /*  ===============================================
  *  COMPONENT DEFINITION

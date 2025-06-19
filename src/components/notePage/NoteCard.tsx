@@ -1,13 +1,13 @@
 // config
-import { db } from "../config/firebase";
+import { db } from "../../config/firebase";
 
 // node
 import { deleteDoc, doc } from "firebase/firestore";
 
 // components
-import { setNoteLocalStorage } from "../utils/utils";
-import { useAppContext } from "./AppContext";
-import { Note } from "../utils/typedefs";
+import { setNoteLocalStorage } from "../../utils/utils";
+import { useAppContext } from "./../AppContext";
+import { Note } from "../../utils/typedefs";
 
 import "./NoteCard.css";
 
