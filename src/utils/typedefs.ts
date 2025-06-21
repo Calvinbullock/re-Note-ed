@@ -27,14 +27,14 @@ export interface AppContextType {
 }
 
 export interface Task {
-  id: string
-  title: string,
-  desc: string,
-  dateAdded: Date,
-  completionDate: Date,
-  dueDate: Date,
-  complete: boolean,
-  //tags: 
+  id: string;
+  title: string;
+  desc: string;
+  dateAdded: Date;
+  completionDate: Date;
+  dueDate: Date;
+  complete: boolean;
+  //tags:
   //subTasks
   //repeat (this will take more thinking a specifics planning)
   //importance / color options ?

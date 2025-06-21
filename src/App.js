@@ -14,17 +14,17 @@ import Home from "./components/Home";
  *  COMPONENT DEFINITION
  * ============================================= */
 export default function App() {
-    return (
-        <AppProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Home/>} />
-                    <Route path="/NotePage" element={<NotePage/>} />
-                    <Route path="/TaskPage" element={<TaskPage/>} />
-                    <Route path="/SignIn" element={<SignInPage />} />
-                    <Route path="/SignUp" element={<SignUpPage />} />
-                </Routes>
-            </BrowserRouter>
-        </AppProvider>
-    );
+  return (
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/NotePage" element={<NotePage />} />
+          <Route path="/TaskPage" element={<TaskPage />} />
+          <Route path="/SignIn" element={<SignInPage />} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
+  );
 }

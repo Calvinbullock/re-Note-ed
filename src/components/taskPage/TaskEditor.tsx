@@ -1,6 +1,7 @@
-import { Task } from '../../utils/typedefs';
+import React from "react";
+import { Task } from "../../utils/typedefs";
 
-import './TaskEditor.css';
+import "./TaskEditor.css";
 
 export interface TaskEditorPopupProps {
   isOpen?: boolean;
@@ -9,8 +10,9 @@ export interface TaskEditorPopupProps {
   initialTask?: Task | null;
 }
 
-export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (props: TaskEditorPopupProps) => {
-
+export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (
+  props: TaskEditorPopupProps,
+) => {
   let editedTask: Task = {
     id: "",
     title: "",
@@ -21,12 +23,18 @@ export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (props: TaskEdito
     complete: false,
   };
 
-  function handleChange() {}
+  function handleChange() {
+    // NOTE: place holder
+  }
+  function handleSubmit() {
+    // NOTE: place holder
+  }
+
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        <h2></h2>
-        <form onSubmit={() => {}}>
+        <h2>Add Your New Task</h2>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="title">Title:</label>
             <input
@@ -56,7 +64,7 @@ export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (props: TaskEdito
               type="date"
               id="dueDate"
               name="dueDate"
-              value={editedTask.dueDate.toISOString() || ''} // Handle undefined for empty input
+              value={editedTask.dueDate.toISOString() || ""} // Handle undefined for empty input
               onChange={handleChange}
             />
           </div>
@@ -73,7 +81,11 @@ export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (props: TaskEdito
           </div>
 
           <div className="popup-actions">
-            <button type="button" onClick={props.onClose} className="cancel-button">
+            <button
+              type="button"
+              onClick={props.onClose}
+              className="cancel-button"
+            >
               Cancel
             </button>
             <button type="submit" className="save-button">

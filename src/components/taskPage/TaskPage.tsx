@@ -12,7 +12,6 @@ import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
 
 //import "./TaskPage.css";
 
-
 /**
  * TaskPage Component
  *
@@ -27,7 +26,8 @@ import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
  */
 export default function TaskPage() {
   const [taskData, setTaskData] = useState({});
-  const [taskEditorPopupProps, setTaskEditorPopupProps] = useState<TaskEditorPopupProps>({});
+  const [taskEditorPopupProps, setTaskEditorPopupProps] =
+    useState<TaskEditorPopupProps>({});
 
   // get all tasks from db
   useEffect(() => {
@@ -38,31 +38,29 @@ export default function TaskPage() {
         const taskData: Partial<Task>[] = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }))
-        setTaskData(taskData)
-
+        }));
+        setTaskData(taskData);
       } catch (err) {
         console.log(err);
       }
-    })
+    });
     return () => unsubscribe();
-  }, [])
+  }, []);
 
   const onClose = () => {
-    setTaskEditorPopupProps(prevProps => ({
+    setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: false,
     }));
-  }
+  };
 
   function handleAddTask() {
-    setTaskEditorPopupProps(prevProps => ({
+    setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: !prevProps.isOpen,
       onClose: onClose,
     }));
   }
-
 
   // htmx element
   return (
@@ -71,9 +69,11 @@ export default function TaskPage() {
       <button type="button" onClick={handleAddTask} className="add-task-button">
         Add Task
       </button>
-      {
-        (taskEditorPopupProps.isOpen) ? ( <TaskEditorPopup {...taskEditorPopupProps}/>) : (<></>)
-      }
+      {taskEditorPopupProps.isOpen ? (
+        <TaskEditorPopup {...taskEditorPopupProps} />
+      ) : (
+        <></>
+      )}
       {JSON.stringify(taskData)}
     </>
   );
