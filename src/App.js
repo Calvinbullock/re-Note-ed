@@ -7,7 +7,7 @@ import NotePage from "./components/notePage/NotePage";
 import SignInPage from "./components/signIn-SignUp/SignInPage.tsx";
 import SignUpPage from "./components/signIn-SignUp/SignUpPage.tsx";
 import { AppProvider } from "./components/AppContext.tsx";
-//import TaskPage from "./components/taskPage/TaskPage";
+import TaskPage from "./components/taskPage/TaskPage";
 import Home from "./components/Home";
 
 /*  ===============================================
@@ -20,7 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/NotePage" element={<NotePage />} />
-          {/* <Route path="/TaskPage" element={<TaskPage/>} /> */}
+          <Route path="/TaskPage" element={<TaskPage />} />
           <Route path="/SignIn" element={<SignInPage />} />
           <Route path="/SignUp" element={<SignUpPage />} />
         </Routes>
