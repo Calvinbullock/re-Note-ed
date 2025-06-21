@@ -26,8 +26,12 @@ import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
  */
 export default function TaskPage() {
   const [taskData, setTaskData] = useState({});
-  const [taskEditorPopupProps, setTaskEditorPopupProps] =
-    useState<TaskEditorPopupProps>({});
+  const [taskEditorPopupProps, setTaskEditorPopupProps] = useState<TaskEditorPopupProps>({
+    isOpen: false,
+    onClose: () => {},
+    onSave: (task: Task) => console.log('Save not implemented yet for', task), // Or more specific initial logic
+    initialTask: null,
+  });
 
   // get all tasks from db
   useEffect(() => {
@@ -47,13 +51,16 @@ export default function TaskPage() {
     return () => unsubscribe();
   }, []);
 
+  // callback for closing task editor and dumping edits
   const onCloseCallback = () => {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: false,
+      initialTask: null,
     }));
   };
 
+  // opens the task editor popup
   function handleAddTask() {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
