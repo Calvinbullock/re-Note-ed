@@ -13,6 +13,7 @@ export interface TaskEditorPopupProps {
 export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (
   props: TaskEditorPopupProps,
 ) => {
+
   let editedTask: Task = {
     id: "",
     title: "",

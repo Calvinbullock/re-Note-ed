@@ -47,7 +47,7 @@ export default function TaskPage() {
     return () => unsubscribe();
   }, []);
 
-  const onClose = () => {
+  const onCloseCallback = () => {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: false,
@@ -58,7 +58,7 @@ export default function TaskPage() {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: !prevProps.isOpen,
-      onClose: onClose,
+      onClose: onCloseCallback,
     }));
   }
 
