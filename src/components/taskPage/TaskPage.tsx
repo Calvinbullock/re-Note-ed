@@ -59,7 +59,6 @@ export default function TaskPage() {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: false,
-      initialTask: null,
     }));
   };
 
