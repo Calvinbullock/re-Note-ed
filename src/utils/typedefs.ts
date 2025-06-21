@@ -25,3 +25,18 @@ export interface AppContextType {
   isLogedIn: string;
   setIsLogedIn: React.Dispatch<React.SetStateAction<string>>; // Consider React.Dispatch<React.SetStateAction<boolean>>
 }
+
+export interface Task {
+  id: string
+  title: string,
+  desc: string,
+  dateAdded: Date,
+  completionDate: Date,
+  dueDate: Date,
+  complete: boolean,
+  //tags: 
+  //subTasks
+  //repeat (this will take more thinking a specifics planning)
+  //importance / color options ?
+  //note ID (can tie notes to a task)
+}
