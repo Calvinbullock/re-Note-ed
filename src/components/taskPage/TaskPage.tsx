@@ -26,12 +26,15 @@ import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
  */
 export default function TaskPage() {
   const [taskData, setTaskData] = useState({});
-  const [taskEditorPopupProps, setTaskEditorPopupProps] = useState<TaskEditorPopupProps>({
-    isOpen: false,
-    onClose: () => {},
-    onSave: (task: Task) => console.log('Save not implemented yet for', task), // Or more specific initial logic
-    initialTask: null,
-  });
+  const [taskEditorPopupProps, setTaskEditorPopupProps] =
+    useState<TaskEditorPopupProps>({
+      isOpen: false,
+      onClose: () => {
+        /**/
+      },
+      onSave: (task: Task) => console.log("Save not implemented yet for", task), // Or more specific initial logic
+      initialTask: null,
+    });
 
   // get all tasks from db
   useEffect(() => {
