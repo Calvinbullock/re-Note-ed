@@ -3,14 +3,32 @@ import { useEffect, useState } from "react";
 
 // firebase
 import { db } from "./../../config/firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 
 // components
 import Nav from "./../nav/Nav";
 import { Task } from "../../utils/typedefs";
 import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
+import { TaskCard } from "./TaskCard";
 
 //import "./TaskPage.css";
+const DB_COLLECTION = "Tasks";
+
+// Helper function to convert ISO string from Firestore to JavaScript Date
+const convertIsoStringToDate = (isoString: string | null | undefined): Date | null => {
+  if (isoString) {
+    try {
+      const date = new Date(isoString);
+      // Basic check if the date is valid (e.g., not "Invalid Date")
+      if (!isNaN(date.getTime())) {
+        return date;
+      }
+    } catch (e) {
+      console.error("Error converting ISO string to Date:", isoString, e);
+    }
+  }
+  return null;
+};
 
 /**
  * TaskPage Component
@@ -25,7 +43,8 @@ import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
  * - `Nav`: A navigation component
  */
 export default function TaskPage() {
-  const [taskData, setTaskData] = useState({});
+  // FIX: Explicitly type taskData as an array of Task objects
+  const [taskData, setTaskData] = useState<Task[]>([]);
   const [taskEditorPopupProps, setTaskEditorPopupProps] =
     useState<TaskEditorPopupProps>({
       isOpen: false,
@@ -38,15 +57,27 @@ export default function TaskPage() {
 
   // get all tasks from db
   useEffect(() => {
-    const tasksCollectionRef = collection(db, "Tasks");
+    const tasksCollectionRef = collection(db, DB_COLLECTION);
 
     const unsubscribe = onSnapshot(tasksCollectionRef, (snapshot) => {
       try {
-        const taskData: Partial<Task>[] = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setTaskData(taskData);
+        // Ensure that the mapped data matches the Task interface as closely as possible
+        const fetchedTasks: Task[] = snapshot.docs.map((doc) => {
+          // You might need to cast or carefully construct the Task object
+          // if doc.data() doesn't perfectly match your Task type.
+          // For simplicity, assuming a direct match or that missing fields are optional.
+          const data = doc.data();
+          return {
+            id: doc.id,
+            complete: data.complete || false,
+            completionDate: convertIsoStringToDate(data.completionDate as string),
+            desc: data.desc || '',
+            dateAdded: convertIsoStringToDate(data.dateAdded as string),
+            dueDate: convertIsoStringToDate(data.dueDate as string),
+            title: data.title || '',
+          } as Task; // Cast to Task if needed, but safer to match properties
+        });
+        setTaskData(fetchedTasks);
       } catch (err) {
         console.log(err);
       }
@@ -63,12 +94,22 @@ export default function TaskPage() {
     }));
   };
 
+  async function handleTaskData(task: Task) {
+    try {
+      const docRef = await addDoc(collection(db, DB_COLLECTION), task);
+      console.log("Document written with ID: ", docRef.id);
+      return docRef.id; // Return the ID of the new document
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      throw e; // Re-throw to handle in calling code
+    }
+  }
+
   // opens the task editor popup
   function handleAddTask() {
     setTaskEditorPopupProps((prevProps) => ({
       ...prevProps,
       isOpen: !prevProps.isOpen,
-      onClose: onCloseCallback,
     }));
   }
 
@@ -76,15 +117,26 @@ export default function TaskPage() {
   return (
     <>
       <Nav />
+
+      {/* Conditional rendering to ensure taskData is an array before mapping */}
+      {Array.isArray(taskData) && taskData.map((task: Task) => (
+        <TaskCard key={task.id} task={task} />
+      ))}
+
       <button type="button" onClick={handleAddTask} className="add-task-button">
         Add Task
       </button>
       {taskEditorPopupProps.isOpen ? (
-        <TaskEditorPopup {...taskEditorPopupProps} />
+        <TaskEditorPopup
+          {...taskEditorPopupProps}
+          onClose={onCloseCallback}
+          onSave={handleTaskData}
+        />
       ) : (
         <></>
       )}
-      {JSON.stringify(taskData)}
+      {/* You can remove this for production, it's just for debugging */}
+      {/* {JSON.stringify(taskData, null, 2)} */}
     </>
   );
 }

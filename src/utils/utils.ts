@@ -208,6 +208,16 @@ function formateData(data: Note | Partial<Note>): Note | Partial<Note> {
   return data;
 }
 
+// Helper function to format dates
+function formatDate(date: Date | null): string {
+  if (!date) return 'N/A';
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+};
+
 export {
   clearInput,
   getEpochTimeInSeconds,
@@ -218,4 +228,5 @@ export {
   validateNoteData,
   formateEditData,
   formateData,
+  formatDate,
 };
