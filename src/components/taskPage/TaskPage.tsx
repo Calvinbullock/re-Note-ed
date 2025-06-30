@@ -124,7 +124,12 @@ export default function TaskPage() {
     <>
       <Nav />
 
-      <button id="button" type="button" onClick={handleAddTask} className="add-task-button">
+      <button
+        id="button"
+        type="button"
+        onClick={handleAddTask}
+        className="add-task-button"
+      >
         Add Task
       </button>
 
