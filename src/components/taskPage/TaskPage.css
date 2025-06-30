@@ -1,0 +1,17 @@
+@import url("../../App.css");
+
+#button {
+  border: none;
+  border-radius: var(--corner-radius);
+
+  background-color: var(--nav-input-light);
+  margin-top: 0.5%;
+  padding: 10px;
+  margin-left: 2rem;
+  margin-left: 2rem;
+}
+
+.dark-theme #button {
+  background: var(--nav-input-dark);
+  color: var(--nav-text-input-dark);
+}

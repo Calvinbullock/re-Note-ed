@@ -13,7 +13,6 @@ export interface TaskEditorPopupProps {
 export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (
   props: TaskEditorPopupProps,
 ) => {
-
   const { initialTask, onClose, onSave } = props;
   const [editedTask, setEditedTask] = useState<Task>(
     initialTask || {
@@ -55,8 +54,8 @@ export const TaskEditorPopup: React.FC<TaskEditorPopupProps> = (
 
   const handleChange = (
     e: React.ChangeEvent<
-    HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-  >,
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
 

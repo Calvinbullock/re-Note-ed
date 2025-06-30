@@ -11,11 +11,15 @@ import { Task } from "../../utils/typedefs";
 import { TaskEditorPopup, TaskEditorPopupProps } from "./TaskEditor";
 import { TaskCard } from "./TaskCard";
 
+import "./TaskPage.css";
+
 //import "./TaskPage.css";
 const DB_COLLECTION = "Tasks";
 
 // Helper function to convert ISO string from Firestore to JavaScript Date
-const convertIsoStringToDate = (isoString: string | null | undefined): Date | null => {
+const convertIsoStringToDate = (
+  isoString: string | null | undefined,
+): Date | null => {
   if (isoString) {
     try {
       const date = new Date(isoString);
@@ -70,11 +74,13 @@ export default function TaskPage() {
           return {
             id: doc.id,
             complete: data.complete || false,
-            completionDate: convertIsoStringToDate(data.completionDate as string),
-            desc: data.desc || '',
+            completionDate: convertIsoStringToDate(
+              data.completionDate as string,
+            ),
+            desc: data.desc || "",
             dateAdded: convertIsoStringToDate(data.dateAdded as string),
             dueDate: convertIsoStringToDate(data.dueDate as string),
-            title: data.title || '',
+            title: data.title || "",
           } as Task; // Cast to Task if needed, but safer to match properties
         });
         setTaskData(fetchedTasks);
@@ -118,14 +124,14 @@ export default function TaskPage() {
     <>
       <Nav />
 
-      {/* Conditional rendering to ensure taskData is an array before mapping */}
-      {Array.isArray(taskData) && taskData.map((task: Task) => (
-        <TaskCard key={task.id} task={task} />
-      ))}
-
-      <button type="button" onClick={handleAddTask} className="add-task-button">
+      <button id="button" type="button" onClick={handleAddTask} className="add-task-button">
         Add Task
       </button>
+
+      {/* Conditional rendering to ensure taskData is an array before mapping */}
+      {Array.isArray(taskData) &&
+        taskData.map((task: Task) => <TaskCard key={task.id} task={task} />)}
+
       {taskEditorPopupProps.isOpen ? (
         <TaskEditorPopup
           {...taskEditorPopupProps}

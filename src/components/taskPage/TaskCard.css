@@ -3,29 +3,41 @@
 .task-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem;
+  margin-left: 0.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   background-color: var(--background-light);
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition-property: all;
   transition-duration: 200ms;
   min-height: 80px;
   max-height: 120px;
-  width: 100%;
+  width: 80%;
+  border: var(--text-light) 1.5px solid;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-left-width: 8px;
   border-left-style: solid;
 }
 
 .dark-theme .task-card {
-  background-color: var(--background-dark);
+  background-color: var(--float-background-dark);
   color: var(--text-dark);
+  border: var(--text-dark) 1.5px solid;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-left-width: 8px;
+  border-left-style: solid;
 }
 
 .task-card:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .task-card.is-complete {
@@ -45,17 +57,28 @@
 }
 
 .task-card-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1f2937;
+  color: var(--text-light);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.dark-theme .task-card-title {
+  color: var(--text-dark);
+}
+
 .task-card-title.is-complete {
   text-decoration: line-through;
-  color: #6b7280;
+  color: var(--text-light);
+}
+
+.dark-theme .task-card-title.is-complete {
+  color: var(--text-dark);
+}
+
+.dark-theme .task-card-title.task-card.is-complete {
+  text-decoration: line-through;
+  color: var(--text-dark);
 }
 
 .task-card-description {
@@ -64,6 +87,10 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.dark-theme .task-card-description {
+  color: #d1dff1;
 }
 
 .task-card-description.is-complete {

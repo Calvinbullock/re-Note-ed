@@ -1,27 +1,24 @@
-import { Task } from "../../utils/typedefs"
+import React from "react";
+import { Task } from "../../utils/typedefs";
 import { formatDate } from "../../utils/utils";
 
-import './TaskCard.css';
+import "./TaskCard.css";
 
 // TaskCard Functional Component
 export const TaskCard: React.FC<{ task: Task }> = ({ task }) => {
   const isComplete = task.complete;
 
   return (
-    <div
-      className={`task-card ${isComplete ? 'is-complete' : ''}`}
-    >
+    <div className={`task-card ${isComplete ? "is-complete" : ""}`}>
       {/* Left section: Title and Description */}
       <div className="task-card-left">
-        <h3
-          className={`task-card-title ${isComplete ? 'is-complete' : ''}`}
-        >
+        <h3 className={`task-card-title ${isComplete ? "is-complete" : ""}`}>
           {task.title}
         </h3>
         <p
-          className={`task-card-description ${isComplete ? 'is-complete' : ''}`}
+          className={`task-card-description ${isComplete ? "is-complete" : ""}`}
         >
-          {task.desc || 'No description provided.'}
+          {task.desc || "No description provided."}
         </p>
       </div>
 
@@ -31,9 +28,9 @@ export const TaskCard: React.FC<{ task: Task }> = ({ task }) => {
           Due: <span>{formatDate(task.dueDate)}</span>
         </div>
         <div
-          className={`task-card-status-badge ${isComplete ? 'is-complete' : ''}`}
+          className={`task-card-status-badge ${isComplete ? "is-complete" : ""}`}
         >
-          {isComplete ? 'Completed' : 'Pending'}
+          {isComplete ? "Completed" : "Pending"}
         </div>
       </div>
     </div>
