@@ -13,8 +13,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-          cache: "pnpm" # This line enables caching for npm dependencies automatically
+          cache: "npm" # This line enables caching for npm dependencies automatically
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Run lint
-        run: pnpm run lint
+        run: npm run lint
