@@ -71,7 +71,7 @@
 }
 
 .checkbox-group label {
-  margin-bottom: 0; /* Override default label margin */
+  margin-bottom: 0;
   font-weight: normal;
 }
 
